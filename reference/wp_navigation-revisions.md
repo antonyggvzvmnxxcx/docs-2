@@ -1,12 +1,12 @@
 ---
 ---
 
-# Post Revisions
+# Navigation Revisions
 
 <section class="route">
 	<div class="primary">
 		<h2>Schema</h2>
-<p>The schema defines all the fields that exist within a post revision record. Any response from these endpoints can be expected to contain the fields below unless the `_filter` query parameter is used or the schema field only appears in a specific context.</p>
+<p>The schema defines all the fields that exist within a navigation revision record. Any response from these endpoints can be expected to contain the fields below unless the `_filter` query parameter is used or the schema field only appears in a specific context.</p>
 <table class="attributes">
 			<tr id="schema-author">
 			<td>
@@ -135,17 +135,6 @@
 				<p>The content for the post.</p>
 				<p class="type">
 					JSON data type: object				</p>
-								<p class="context">Context: <code>view</code>, <code>edit</code></p>
-							</td>
-		</tr>
-			<tr id="schema-excerpt">
-			<td>
-				<code>excerpt</code>
-			</td>
-			<td>
-				<p>The excerpt for the post.</p>
-				<p class="type">
-					JSON data type: object				</p>
 								<p class="context">Context: <code>view</code>, <code>edit</code>, <code>embed</code></p>
 							</td>
 		</tr>
@@ -156,16 +145,16 @@
 
 <div><section class="route">
 	<div class="primary">
-		<h2>List Post Revisions</h2>
-		<p>Query this endpoint to retrieve a collection of post revisions. The response you receive can be controlled and filtered using the URL query parameters below.</p>
+		<h2>List Navigation Revisions</h2>
+		<p>Query this endpoint to retrieve a collection of navigation revisions. The response you receive can be controlled and filtered using the URL query parameters below.</p>
 
 		<h3>Definition</h3>
 
-		<code>GET /wp/v2/posts/&lt;parent&gt;/revisions</code>
+		<code>GET /wp/v2/navigation/&lt;parent&gt;/revisions</code>
 
 		<h3>Example Request</h3>
 
-		<code>$ curl https://example.com/wp-json/wp/v2/posts/&lt;parent&gt;/revisions</code>
+		<code>$ curl https://example.com/wp-json/wp/v2/navigation/&lt;parent&gt;/revisions</code>
 	</div>
 	<div class="secondary">
 			<h3>Arguments</h3>
@@ -271,15 +260,15 @@
 </section>
 <section class="route">
 	<div class="primary">
-		<h2>Retrieve a Post Revision</h2>
+		<h2>Retrieve a Navigation Revision</h2>
 
 		<h3>Definition & Example Request</h3>
 
-		<code>GET /wp/v2/posts/&lt;parent&gt;/revisions/&lt;id&gt;</code>
+		<code>GET /wp/v2/navigation/&lt;parent&gt;/revisions/&lt;id&gt;</code>
 
-		<p>Query this endpoint to retrieve a specific post revision record.</p>
+		<p>Query this endpoint to retrieve a specific navigation revision record.</p>
 
-		<code>$ curl https://example.com/wp-json/wp/v2/posts/&lt;parent&gt;/revisions/&lt;id&gt;</code>
+		<code>$ curl https://example.com/wp-json/wp/v2/navigation/&lt;parent&gt;/revisions/&lt;id&gt;</code>
 	</div>
 	<div class="secondary">
 			<h3>Arguments</h3>
@@ -318,7 +307,7 @@
 </section>
 <section class="route">
 	<div class="primary">
-		<h2>Delete a Post Revision</h2>
+		<h2>Delete a Navigation Revision</h2>
 			<h3>Arguments</h3>
 	<table class="arguments">
 					<tr>
@@ -351,24 +340,24 @@
 	<div class="secondary">
 		<h3>Definition</h3>
 
-		<code>DELETE /wp/v2/posts/&lt;parent&gt;/revisions/&lt;id&gt;</code>
+		<code>DELETE /wp/v2/navigation/&lt;parent&gt;/revisions/&lt;id&gt;</code>
 
 		<h3>Example Request</h3>
 
-		<code>$ curl -X DELETE https://example.com/wp-json/wp/v2/posts/&lt;parent&gt;/revisions/&lt;id&gt;</code>
+		<code>$ curl -X DELETE https://example.com/wp-json/wp/v2/navigation/&lt;parent&gt;/revisions/&lt;id&gt;</code>
 	</div>
 </section>
 <section class="route">
 	<div class="primary">
-		<h2>Retrieve a Post Revision</h2>
+		<h2>Retrieve a Navigation Revision</h2>
 
 		<h3>Definition & Example Request</h3>
 
-		<code>GET /wp/v2/posts/&lt;id&gt;/autosaves</code>
+		<code>GET /wp/v2/navigation/&lt;id&gt;/autosaves</code>
 
-		<p>Query this endpoint to retrieve a specific post revision record.</p>
+		<p>Query this endpoint to retrieve a specific navigation revision record.</p>
 
-		<code>$ curl https://example.com/wp-json/wp/v2/posts/&lt;id&gt;/autosaves</code>
+		<code>$ curl https://example.com/wp-json/wp/v2/navigation/&lt;id&gt;/autosaves</code>
 	</div>
 	<div class="secondary">
 			<h3>Arguments</h3>
@@ -399,7 +388,7 @@
 </section>
 <section class="route">
 	<div class="primary">
-		<h2>Create a Post Revision</h2>
+		<h2>Create a Navigation Revision</h2>
 			<h3>Arguments</h3>
 	<table class="arguments">
 					<tr>
@@ -469,93 +458,10 @@
 			</tr>
 					<tr>
 				<td>
-											<code><a href="#schema-author">author</a></code><br />
-									</td>
-				<td>
-											<p>The ID for the author of the post.</p>
-																								</td>
-			</tr>
-					<tr>
-				<td>
-											<code><a href="#schema-excerpt">excerpt</a></code><br />
-									</td>
-				<td>
-											<p>The excerpt for the post.</p>
-																								</td>
-			</tr>
-					<tr>
-				<td>
-											<code><a href="#schema-featured_media">featured_media</a></code><br />
-									</td>
-				<td>
-											<p>The ID of the featured media for the post.</p>
-																								</td>
-			</tr>
-					<tr>
-				<td>
-											<code><a href="#schema-comment_status">comment_status</a></code><br />
-									</td>
-				<td>
-											<p>Whether or not comments are open on the post.</p>
-																										<p>One of: <code>open</code>, <code>closed</code></p>
-									</td>
-			</tr>
-					<tr>
-				<td>
-											<code><a href="#schema-ping_status">ping_status</a></code><br />
-									</td>
-				<td>
-											<p>Whether or not the post can be pinged.</p>
-																										<p>One of: <code>open</code>, <code>closed</code></p>
-									</td>
-			</tr>
-					<tr>
-				<td>
-											<code><a href="#schema-format">format</a></code><br />
-									</td>
-				<td>
-											<p>The format for the post.</p>
-																										<p>One of: <code>standard</code>, <code>aside</code>, <code>chat</code>, <code>gallery</code>, <code>link</code>, <code>image</code>, <code>quote</code>, <code>status</code>, <code>video</code>, <code>audio</code></p>
-									</td>
-			</tr>
-					<tr>
-				<td>
-											<code><a href="#schema-meta">meta</a></code><br />
-									</td>
-				<td>
-											<p>Meta fields.</p>
-																								</td>
-			</tr>
-					<tr>
-				<td>
-											<code><a href="#schema-sticky">sticky</a></code><br />
-									</td>
-				<td>
-											<p>Whether or not the post should be treated as sticky.</p>
-																								</td>
-			</tr>
-					<tr>
-				<td>
 											<code><a href="#schema-template">template</a></code><br />
 									</td>
 				<td>
 											<p>The theme file to use to display the post.</p>
-																								</td>
-			</tr>
-					<tr>
-				<td>
-											<code><a href="#schema-categories">categories</a></code><br />
-									</td>
-				<td>
-											<p>The terms assigned to the post in the category taxonomy.</p>
-																								</td>
-			</tr>
-					<tr>
-				<td>
-											<code><a href="#schema-tags">tags</a></code><br />
-									</td>
-				<td>
-											<p>The terms assigned to the post in the post_tag taxonomy.</p>
 																								</td>
 			</tr>
 			</table>
@@ -564,20 +470,20 @@
 	<div class="secondary">
 		<h3>Definition</h3>
 
-		<code>POST /wp/v2/posts/&lt;id&gt;/autosaves</code>
+		<code>POST /wp/v2/navigation/&lt;id&gt;/autosaves</code>
 	</div>
 </section>
 <section class="route">
 	<div class="primary">
-		<h2>Retrieve a Post Revision</h2>
+		<h2>Retrieve a Navigation Revision</h2>
 
 		<h3>Definition & Example Request</h3>
 
-		<code>GET /wp/v2/posts/&lt;parent&gt;/autosaves/&lt;id&gt;</code>
+		<code>GET /wp/v2/navigation/&lt;parent&gt;/autosaves/&lt;id&gt;</code>
 
-		<p>Query this endpoint to retrieve a specific post revision record.</p>
+		<p>Query this endpoint to retrieve a specific navigation revision record.</p>
 
-		<code>$ curl https://example.com/wp-json/wp/v2/posts/&lt;parent&gt;/autosaves/&lt;id&gt;</code>
+		<code>$ curl https://example.com/wp-json/wp/v2/navigation/&lt;parent&gt;/autosaves/&lt;id&gt;</code>
 	</div>
 	<div class="secondary">
 			<h3>Arguments</h3>

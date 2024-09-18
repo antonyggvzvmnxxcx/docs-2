@@ -46,8 +46,7 @@ var link = Array.prototype.filter.call( links, function ( item ) {
 var api_root = link[0].href;
 ```
 
-For in-browser clients, or clients without access to HTTP headers, this may be a more usable way of discovering the API. This is similar to Atom/RSS feed discovery, so existing code for that purpose may also be automatically
-adapted instead.
+For in-browser clients, or clients without access to HTTP headers, this may be a more usable way of discovering the API. This is similar to Atom/RSS feed discovery, so existing code for that purpose may also be automatically adapted instead.
 
 
 ### RSD (Really Simple Discovery)
@@ -155,7 +154,7 @@ This would add the `testplugin/v1` namespace to the index:
 
 ## Resource Discovery
 
-As of [WordPress 5.5](https://core.trac.wordpress.org/changeset/48273) the REST API also provides a discovery mechanism for identifying the REST API route equivalent of the current document. A link is added with a `rel` of `alternate` and a `type` of `alternate/json` that points to a REST API url. The link is added both as a [`Link` header](#link-header) and a [`<link>` element](#element).
+As of [WordPress 5.5](https://core.trac.wordpress.org/changeset/48273) the REST API also provides a discovery mechanism for identifying the REST API route equivalent of the current document. A link is added with a `rel` of `alternate` and a `type` of `application/json` that points to a REST API url. The link is added both as a [`Link` header](#link-header) and a [`<link>` element](#element).
 
 For instance, in the `<head>` section of this page, the following `<link>` appears.
 

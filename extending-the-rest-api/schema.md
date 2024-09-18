@@ -7,7 +7,7 @@ A schema is metadata that tells us how our data is structured. Most databases im
 
 ### JSON
 
-First, let's talk about JSON a bit. JSON is a human readable data format that resembles JavaScript objects. JSON stands for JavaScript Object Notation. JSON is growing wildly in popularity and seems to be taking the world of data structure by storm. The WordPress REST API uses a special specification for JSON known as JSON schema. To learn more about JSON Schema please check out the [JSON Schema website](http://json-schema.org/) and this [easier to understand introduction to JSON Schema](https://spacetelescope.github.io/understanding-json-schema/index.html). Schema affords us many benefits: improved testing, discoverability, and overall better structure. Let's look at a JSON blob of data.
+First, let's talk about JSON a bit. JSON is a human readable data format that resembles JavaScript objects. JSON stands for JavaScript Object Notation. JSON is growing wildly in popularity and seems to be taking the world of data structure by storm. The WordPress REST API uses a special specification for JSON known as JSON schema. To learn more about JSON Schema please check out the [JSON Schema website](http://json-schema.org/) and this [easier to understand introduction to JSON Schema](https://json-schema.org/understanding-json-schema). Schema affords us many benefits: improved testing, discoverability, and overall better structure. Let's look at a JSON blob of data.
 
 ```js
 {
@@ -278,6 +278,39 @@ If your endpoint is implemented using a [subclass of `WP_REST_Controller`](https
 
 If your endpoint does not follow the controller class pattern, args returned from `WP_REST_Controller::get_collection_params()`, or any other instance where callbacks are not specified, the `WP_REST_Request` object will apply sanitization and validation using the `rest_parse_request_arg` function. Importantly, this is only applied when the `sanitize_callback` is not defined. As such, if you specify a custom `sanitize_callback` for your argument definition, the built-in JSON Schema validation will not apply. If you need this validation, you should manually specify `rest_validate_request_arg` as the `validate_callback` in your argument definition.   
 
+### Caching Schema
+
+Schema may be complex, and can take time to generate. You should consider caching generated schema in your plugin's custom endpoints to avoid repeatedly generating the same schema object.
+
+If you are defining your endpoint using a a [subclass of `WP_REST_Controller`](https://developer.wordpress.org/rest-api/extending-the-rest-api/controller-classes/), that might look like this:
+
+```php
+
+	/**
+	 * Retrieves the attachment's schema, conforming to JSON Schema.
+	 *
+	 * @return array Item schema as an array.
+	 */
+	public function get_item_schema() {
+		// Returned cached copy whenever available.
+		if ( $this->schema ) {
+			return $this->add_additional_fields_schema( $this->schema );
+		}
+
+		$schema = parent::get_item_schema();
+		// Add endpoint-specific properties to Schema.
+		$schema['properties']['field_name'] = array( /* ... */ );
+		$schema['properties']['etcetera'] = array( /* ... */ );
+
+		// Cache generated schema on endpoint instance.
+		$this->schema = $schema;
+
+		return $this->add_additional_fields_schema( $this->schema );
+	}
+```
+
+This pattern was introduced into WordPress core in version 5.3 in [#47871](https://core.trac.wordpress.org/ticket/47871), and yielded up to 40% speed improvement when generating some API responses.
+
 ### Schema Documents
 
 A basic schema document consists of a few properties.
@@ -324,7 +357,7 @@ Because the WordPress REST API accepts [URL form encoded](https://en.wikipedia.o
 - `number` Floats, integers, and strings that pass [`is_numeric`](https://www.php.net/manual/en/function.is-numeric.php) are allowed. Values will be casted to a `float`.
 - `integer` Integers or strings that can be [casted to a `float`](https://www.php.net/manual/en/language.types.float.php#language.types.float.casting) with a fractional part that is equivalent to 0.
 - `boolean` Booleans, the integers `0` and `1`, or the strings `"0"`, `"1"`, `"false"`, and `"true"`. `0` is treated as `false` and `1` is treated as `true`.
-- `array` Numeric arrays according to [`wp_is_numeric_array`](https://developer.wordpress.org/reference/functions/wp_is_numeric_array/) or a string. If the string is comma separated it will be split into an array, otherwise it will be an array containing the string value. For example: `"red,yellow"` becomes `aray( "red", "yellow" )` and  `"blue"` becomes `array( "blue" )`.
+- `array` Numeric arrays according to [`wp_is_numeric_array`](https://developer.wordpress.org/reference/functions/wp_is_numeric_array/) or a string. If the string is comma separated it will be split into an array, otherwise it will be an array containing the string value. For example: `"red,yellow"` becomes `array( "red", "yellow" )` and  `"blue"` becomes `array( "blue" )`.
 - `object` An array, an `stdClass` object, an object implementing `JsonSerializable` or an empty string. Values will be converted to a native PHP array.
 
 When using multiple types, types will be evaluated in the order they are specified. This can have an impact on the sanitized data received by your REST API endpoint. For instance, in the previous example, if the value submitted was `"1"`, it would be sanitized to the boolean `true` value. However, if the order was flipped, the value would remain as the string `"1"`.

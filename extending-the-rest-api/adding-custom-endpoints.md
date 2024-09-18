@@ -2,7 +2,7 @@
 
 The WordPress REST API is more than just a set of default routes. It is also a tool for creating custom routes and endpoints. The WordPress front-end provides a default set of URL mappings, but the tools used to create them (e.g. the Rewrites API, as well as the query classes: `WP_Query`, `WP_User`, etc) are also available for creating your own URL mappings, or custom queries.
 
-This document details how to create a totally custom route, with its own endpoints. We'll first work through a short example, then expand it out to the full controller pattern as used internally.
+This document details how to create a new and completely custom route with its own endpoints. We'll first work through a short example and then expand it out to the full controller pattern as used internally.
 
 
 ## Bare Basics
@@ -48,6 +48,10 @@ add_action( 'rest_api_init', function () {
 Right now, we're only registering the one endpoint for the route. The term "route" refers to the URL, whereas "endpoint" refers to the function behind it that corresponds to a method *and* a URL (for more information, see the [Glossary](https://developer.wordpress.org/rest-api/glossary/)).
 
 For example, if your site domain is `example.com` and you've kept the API path of `wp-json`, then the full URL would be `http://example.com/wp-json/myplugin/v1/author/(?P\d+)`.
+
+[alert]
+On sites without pretty permalinks, the route is instead added to the URL as the `rest_route` parameter. For the above example, the full URL would then be <code>http://example.com/?rest_route=/myplugin/v1/author/(?P\d+)</code>
+[/alert]
 
 Each route can have any number of endpoints, and for each endpoint, you can define the HTTP methods allowed, a callback function for responding to the request and a permissions callback for creating custom permissions. In addition you can define allowed fields in the request and for each field specify a default value, a sanitization callback, a validation callback, and whether the field is required.
 

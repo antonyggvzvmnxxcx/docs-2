@@ -1,12 +1,12 @@
 ---
 ---
 
-# Pages
+# Navigations
 
 <section class="route">
 	<div class="primary">
 		<h2>Schema</h2>
-<p>The schema defines all the fields that exist within a page record. Any response from these endpoints can be expected to contain the fields below unless the `_filter` query parameter is used or the schema field only appears in a specific context.</p>
+<p>The schema defines all the fields that exist within a navigation record. Any response from these endpoints can be expected to contain the fields below unless the `_filter` query parameter is used or the schema field only appears in a specific context.</p>
 <table class="attributes">
 			<tr id="schema-date">
 			<td>
@@ -119,7 +119,7 @@
 				<p>A named status for the post.</p>
 				<p class="type">
 					JSON data type: string				</p>
-								<p class="context">Context: <code>view</code>, <code>edit</code></p>
+								<p class="context">Context: <code>view</code>, <code>edit</code>, <code>embed</code></p>
 									<p>One of: <code>publish</code>, <code>future</code>, <code>draft</code>, <code>pending</code>, <code>private</code></p>
 							</td>
 		</tr>
@@ -146,41 +146,6 @@
 								<p class="context">Context: <code>edit</code></p>
 							</td>
 		</tr>
-			<tr id="schema-permalink_template">
-			<td>
-				<code>permalink_template</code>
-			</td>
-			<td>
-				<p>Permalink template for the post.</p>
-				<p class="type">
-					JSON data type: string				</p>
-									<p class="read-only">Read only</p>
-								<p class="context">Context: <code>edit</code></p>
-							</td>
-		</tr>
-			<tr id="schema-generated_slug">
-			<td>
-				<code>generated_slug</code>
-			</td>
-			<td>
-				<p>Slug automatically generated from the post title.</p>
-				<p class="type">
-					JSON data type: string				</p>
-									<p class="read-only">Read only</p>
-								<p class="context">Context: <code>edit</code></p>
-							</td>
-		</tr>
-			<tr id="schema-parent">
-			<td>
-				<code>parent</code>
-			</td>
-			<td>
-				<p>The ID for the parent of the post.</p>
-				<p class="type">
-					JSON data type: integer				</p>
-								<p class="context">Context: <code>view</code>, <code>edit</code></p>
-							</td>
-		</tr>
 			<tr id="schema-title">
 			<td>
 				<code>title</code>
@@ -200,86 +165,7 @@
 				<p>The content for the post.</p>
 				<p class="type">
 					JSON data type: object				</p>
-								<p class="context">Context: <code>view</code>, <code>edit</code></p>
-							</td>
-		</tr>
-			<tr id="schema-author">
-			<td>
-				<code>author</code>
-			</td>
-			<td>
-				<p>The ID for the author of the post.</p>
-				<p class="type">
-					JSON data type: integer				</p>
 								<p class="context">Context: <code>view</code>, <code>edit</code>, <code>embed</code></p>
-							</td>
-		</tr>
-			<tr id="schema-excerpt">
-			<td>
-				<code>excerpt</code>
-			</td>
-			<td>
-				<p>The excerpt for the post.</p>
-				<p class="type">
-					JSON data type: object				</p>
-								<p class="context">Context: <code>view</code>, <code>edit</code>, <code>embed</code></p>
-							</td>
-		</tr>
-			<tr id="schema-featured_media">
-			<td>
-				<code>featured_media</code>
-			</td>
-			<td>
-				<p>The ID of the featured media for the post.</p>
-				<p class="type">
-					JSON data type: integer				</p>
-								<p class="context">Context: <code>view</code>, <code>edit</code>, <code>embed</code></p>
-							</td>
-		</tr>
-			<tr id="schema-comment_status">
-			<td>
-				<code>comment_status</code>
-			</td>
-			<td>
-				<p>Whether or not comments are open on the post.</p>
-				<p class="type">
-					JSON data type: string				</p>
-								<p class="context">Context: <code>view</code>, <code>edit</code></p>
-									<p>One of: <code>open</code>, <code>closed</code></p>
-							</td>
-		</tr>
-			<tr id="schema-ping_status">
-			<td>
-				<code>ping_status</code>
-			</td>
-			<td>
-				<p>Whether or not the post can be pinged.</p>
-				<p class="type">
-					JSON data type: string				</p>
-								<p class="context">Context: <code>view</code>, <code>edit</code></p>
-									<p>One of: <code>open</code>, <code>closed</code></p>
-							</td>
-		</tr>
-			<tr id="schema-menu_order">
-			<td>
-				<code>menu_order</code>
-			</td>
-			<td>
-				<p>The order of the post in relation to other posts.</p>
-				<p class="type">
-					JSON data type: integer				</p>
-								<p class="context">Context: <code>view</code>, <code>edit</code></p>
-							</td>
-		</tr>
-			<tr id="schema-meta">
-			<td>
-				<code>meta</code>
-			</td>
-			<td>
-				<p>Meta fields.</p>
-				<p class="type">
-					JSON data type: object				</p>
-								<p class="context">Context: <code>view</code>, <code>edit</code></p>
 							</td>
 		</tr>
 			<tr id="schema-template">
@@ -300,16 +186,16 @@
 
 <div><section class="route">
 	<div class="primary">
-		<h2>List Pages</h2>
-		<p>Query this endpoint to retrieve a collection of pages. The response you receive can be controlled and filtered using the URL query parameters below.</p>
+		<h2>List Navigations</h2>
+		<p>Query this endpoint to retrieve a collection of navigations. The response you receive can be controlled and filtered using the URL query parameters below.</p>
 
 		<h3>Definition</h3>
 
-		<code>GET /wp/v2/pages</code>
+		<code>GET /wp/v2/navigation</code>
 
 		<h3>Example Request</h3>
 
-		<code>$ curl https://example.com/wp-json/wp/v2/pages</code>
+		<code>$ curl https://example.com/wp-json/wp/v2/navigation</code>
 	</div>
 	<div class="secondary">
 			<h3>Arguments</h3>
@@ -374,22 +260,6 @@
 			</tr>
 					<tr>
 				<td>
-											<code>author</code><br />
-									</td>
-				<td>
-											<p>Limit result set to posts assigned to specific authors.</p>
-																								</td>
-			</tr>
-					<tr>
-				<td>
-											<code>author_exclude</code><br />
-									</td>
-				<td>
-											<p>Ensure result set excludes posts assigned to specific authors.</p>
-																								</td>
-			</tr>
-					<tr>
-				<td>
 											<code>before</code><br />
 									</td>
 				<td>
@@ -422,14 +292,6 @@
 			</tr>
 					<tr>
 				<td>
-											<code>menu_order</code><br />
-									</td>
-				<td>
-											<p>Limit result set to posts with a specific menu_order value.</p>
-																								</td>
-			</tr>
-					<tr>
-				<td>
 											<code>offset</code><br />
 									</td>
 				<td>
@@ -457,24 +319,8 @@
 																					<p class="default">
 							Default: <code>date</code>
 						</p>
-																<p>One of: <code>author</code>, <code>date</code>, <code>id</code>, <code>include</code>, <code>modified</code>, <code>parent</code>, <code>relevance</code>, <code>slug</code>, <code>include_slugs</code>, <code>title</code>, <code>menu_order</code></p>
+																<p>One of: <code>author</code>, <code>date</code>, <code>id</code>, <code>include</code>, <code>modified</code>, <code>parent</code>, <code>relevance</code>, <code>slug</code>, <code>include_slugs</code>, <code>title</code></p>
 									</td>
-			</tr>
-					<tr>
-				<td>
-											<code>parent</code><br />
-									</td>
-				<td>
-											<p>Limit result set to items with particular parent IDs.</p>
-																								</td>
-			</tr>
-					<tr>
-				<td>
-											<code>parent_exclude</code><br />
-									</td>
-				<td>
-											<p>Limit result set to all items except those of a particular parent ID.</p>
-																								</td>
 			</tr>
 					<tr>
 				<td>
@@ -509,7 +355,7 @@
 </section>
 <section class="route">
 	<div class="primary">
-		<h2>Create a Page</h2>
+		<h2>Create a Navigation</h2>
 			<h3>Arguments</h3>
 	<table class="arguments">
 					<tr>
@@ -555,14 +401,6 @@
 			</tr>
 					<tr>
 				<td>
-											<code><a href="#schema-parent">parent</a></code><br />
-									</td>
-				<td>
-											<p>The ID for the parent of the post.</p>
-																								</td>
-			</tr>
-					<tr>
-				<td>
 											<code><a href="#schema-title">title</a></code><br />
 									</td>
 				<td>
@@ -579,64 +417,6 @@
 			</tr>
 					<tr>
 				<td>
-											<code><a href="#schema-author">author</a></code><br />
-									</td>
-				<td>
-											<p>The ID for the author of the post.</p>
-																								</td>
-			</tr>
-					<tr>
-				<td>
-											<code><a href="#schema-excerpt">excerpt</a></code><br />
-									</td>
-				<td>
-											<p>The excerpt for the post.</p>
-																								</td>
-			</tr>
-					<tr>
-				<td>
-											<code><a href="#schema-featured_media">featured_media</a></code><br />
-									</td>
-				<td>
-											<p>The ID of the featured media for the post.</p>
-																								</td>
-			</tr>
-					<tr>
-				<td>
-											<code><a href="#schema-comment_status">comment_status</a></code><br />
-									</td>
-				<td>
-											<p>Whether or not comments are open on the post.</p>
-																										<p>One of: <code>open</code>, <code>closed</code></p>
-									</td>
-			</tr>
-					<tr>
-				<td>
-											<code><a href="#schema-ping_status">ping_status</a></code><br />
-									</td>
-				<td>
-											<p>Whether or not the post can be pinged.</p>
-																										<p>One of: <code>open</code>, <code>closed</code></p>
-									</td>
-			</tr>
-					<tr>
-				<td>
-											<code><a href="#schema-menu_order">menu_order</a></code><br />
-									</td>
-				<td>
-											<p>The order of the post in relation to other posts.</p>
-																								</td>
-			</tr>
-					<tr>
-				<td>
-											<code><a href="#schema-meta">meta</a></code><br />
-									</td>
-				<td>
-											<p>Meta fields.</p>
-																								</td>
-			</tr>
-					<tr>
-				<td>
 											<code><a href="#schema-template">template</a></code><br />
 									</td>
 				<td>
@@ -649,20 +429,20 @@
 	<div class="secondary">
 		<h3>Definition</h3>
 
-		<code>POST /wp/v2/pages</code>
+		<code>POST /wp/v2/navigation</code>
 	</div>
 </section>
 <section class="route">
 	<div class="primary">
-		<h2>Retrieve a Page</h2>
+		<h2>Retrieve a Navigation</h2>
 
 		<h3>Definition & Example Request</h3>
 
-		<code>GET /wp/v2/pages/&lt;id&gt;</code>
+		<code>GET /wp/v2/navigation/&lt;id&gt;</code>
 
-		<p>Query this endpoint to retrieve a specific page record.</p>
+		<p>Query this endpoint to retrieve a specific navigation record.</p>
 
-		<code>$ curl https://example.com/wp-json/wp/v2/pages/&lt;id&gt;</code>
+		<code>$ curl https://example.com/wp-json/wp/v2/navigation/&lt;id&gt;</code>
 	</div>
 	<div class="secondary">
 			<h3>Arguments</h3>
@@ -701,7 +481,7 @@
 </section>
 <section class="route">
 	<div class="primary">
-		<h2>Update a Page</h2>
+		<h2>Update a Navigation</h2>
 			<h3>Arguments</h3>
 	<table class="arguments">
 					<tr>
@@ -755,14 +535,6 @@
 			</tr>
 					<tr>
 				<td>
-											<code><a href="#schema-parent">parent</a></code><br />
-									</td>
-				<td>
-											<p>The ID for the parent of the post.</p>
-																								</td>
-			</tr>
-					<tr>
-				<td>
 											<code><a href="#schema-title">title</a></code><br />
 									</td>
 				<td>
@@ -779,64 +551,6 @@
 			</tr>
 					<tr>
 				<td>
-											<code><a href="#schema-author">author</a></code><br />
-									</td>
-				<td>
-											<p>The ID for the author of the post.</p>
-																								</td>
-			</tr>
-					<tr>
-				<td>
-											<code><a href="#schema-excerpt">excerpt</a></code><br />
-									</td>
-				<td>
-											<p>The excerpt for the post.</p>
-																								</td>
-			</tr>
-					<tr>
-				<td>
-											<code><a href="#schema-featured_media">featured_media</a></code><br />
-									</td>
-				<td>
-											<p>The ID of the featured media for the post.</p>
-																								</td>
-			</tr>
-					<tr>
-				<td>
-											<code><a href="#schema-comment_status">comment_status</a></code><br />
-									</td>
-				<td>
-											<p>Whether or not comments are open on the post.</p>
-																										<p>One of: <code>open</code>, <code>closed</code></p>
-									</td>
-			</tr>
-					<tr>
-				<td>
-											<code><a href="#schema-ping_status">ping_status</a></code><br />
-									</td>
-				<td>
-											<p>Whether or not the post can be pinged.</p>
-																										<p>One of: <code>open</code>, <code>closed</code></p>
-									</td>
-			</tr>
-					<tr>
-				<td>
-											<code><a href="#schema-menu_order">menu_order</a></code><br />
-									</td>
-				<td>
-											<p>The order of the post in relation to other posts.</p>
-																								</td>
-			</tr>
-					<tr>
-				<td>
-											<code><a href="#schema-meta">meta</a></code><br />
-									</td>
-				<td>
-											<p>Meta fields.</p>
-																								</td>
-			</tr>
-					<tr>
-				<td>
 											<code><a href="#schema-template">template</a></code><br />
 									</td>
 				<td>
@@ -849,7 +563,7 @@
 	<div class="secondary">
 		<h3>Definition</h3>
 
-		<code>POST /wp/v2/pages/&lt;id&gt;</code>
+		<code>POST /wp/v2/navigation/&lt;id&gt;</code>
 
 		<h3>Example Request</h3>
 
@@ -858,7 +572,7 @@
 </section>
 <section class="route">
 	<div class="primary">
-		<h2>Delete a Page</h2>
+		<h2>Delete a Navigation</h2>
 			<h3>Arguments</h3>
 	<table class="arguments">
 					<tr>
@@ -883,11 +597,11 @@
 	<div class="secondary">
 		<h3>Definition</h3>
 
-		<code>DELETE /wp/v2/pages/&lt;id&gt;</code>
+		<code>DELETE /wp/v2/navigation/&lt;id&gt;</code>
 
 		<h3>Example Request</h3>
 
-		<code>$ curl -X DELETE https://example.com/wp-json/wp/v2/pages/&lt;id&gt;</code>
+		<code>$ curl -X DELETE https://example.com/wp-json/wp/v2/navigation/&lt;id&gt;</code>
 	</div>
 </section>
 </div>

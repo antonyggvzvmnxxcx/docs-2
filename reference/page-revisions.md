@@ -10,142 +10,142 @@
 <table class="attributes">
 			<tr id="schema-author">
 			<td>
-				<code>author</code><br />
-				<span class="type">
-					integer				</span>
+				<code>author</code>
 			</td>
 			<td>
-				<p>The ID for the author of the object.</p>
+				<p>The ID for the author of the revision.</p>
+				<p class="type">
+					JSON data type: integer				</p>
 								<p class="context">Context: <code>view</code>, <code>edit</code>, <code>embed</code></p>
 							</td>
 		</tr>
 			<tr id="schema-date">
 			<td>
-				<code>date</code><br />
-				<span class="type">
-					string,
-													datetime (<a href="https://core.trac.wordpress.org/ticket/41032">details</a>)
-										</span>
+				<code>date</code>
 			</td>
 			<td>
-				<p>The date the object was published, in the site&#039;s timezone.</p>
+				<p>The date the revision was published, in the site&#039;s timezone.</p>
+				<p class="type">
+					JSON data type: string,
+											Format: datetime (<a href="https://core.trac.wordpress.org/ticket/41032">details</a>)
+									</p>
 								<p class="context">Context: <code>view</code>, <code>edit</code>, <code>embed</code></p>
 							</td>
 		</tr>
 			<tr id="schema-date_gmt">
 			<td>
-				<code>date_gmt</code><br />
-				<span class="type">
-					string,
-													datetime (<a href="https://core.trac.wordpress.org/ticket/41032">details</a>)
-										</span>
+				<code>date_gmt</code>
 			</td>
 			<td>
-				<p>The date the object was published, as GMT.</p>
+				<p>The date the revision was published, as GMT.</p>
+				<p class="type">
+					JSON data type: string,
+											Format: datetime (<a href="https://core.trac.wordpress.org/ticket/41032">details</a>)
+									</p>
 								<p class="context">Context: <code>view</code>, <code>edit</code></p>
 							</td>
 		</tr>
 			<tr id="schema-guid">
 			<td>
-				<code>guid</code><br />
-				<span class="type">
-					object				</span>
+				<code>guid</code>
 			</td>
 			<td>
-				<p>The globally unique identifier for the object.</p>
+				<p>The globally unique identifier for the post.</p>
+				<p class="type">
+					JSON data type: object				</p>
 									<p class="read-only">Read only</p>
 								<p class="context">Context: <code>view</code>, <code>edit</code></p>
 							</td>
 		</tr>
 			<tr id="schema-id">
 			<td>
-				<code>id</code><br />
-				<span class="type">
-					integer				</span>
+				<code>id</code>
 			</td>
 			<td>
-				<p>Unique identifier for the object.</p>
+				<p>Unique identifier for the revision.</p>
+				<p class="type">
+					JSON data type: integer				</p>
 								<p class="context">Context: <code>view</code>, <code>edit</code>, <code>embed</code></p>
 							</td>
 		</tr>
 			<tr id="schema-modified">
 			<td>
-				<code>modified</code><br />
-				<span class="type">
-					string,
-													datetime (<a href="https://core.trac.wordpress.org/ticket/41032">details</a>)
-										</span>
+				<code>modified</code>
 			</td>
 			<td>
-				<p>The date the object was last modified, in the site&#039;s timezone.</p>
+				<p>The date the revision was last modified, in the site&#039;s timezone.</p>
+				<p class="type">
+					JSON data type: string,
+											Format: datetime (<a href="https://core.trac.wordpress.org/ticket/41032">details</a>)
+									</p>
 								<p class="context">Context: <code>view</code>, <code>edit</code></p>
 							</td>
 		</tr>
 			<tr id="schema-modified_gmt">
 			<td>
-				<code>modified_gmt</code><br />
-				<span class="type">
-					string,
-													datetime (<a href="https://core.trac.wordpress.org/ticket/41032">details</a>)
-										</span>
+				<code>modified_gmt</code>
 			</td>
 			<td>
-				<p>The date the object was last modified, as GMT.</p>
+				<p>The date the revision was last modified, as GMT.</p>
+				<p class="type">
+					JSON data type: string,
+											Format: datetime (<a href="https://core.trac.wordpress.org/ticket/41032">details</a>)
+									</p>
 								<p class="context">Context: <code>view</code>, <code>edit</code></p>
 							</td>
 		</tr>
 			<tr id="schema-parent">
 			<td>
-				<code>parent</code><br />
-				<span class="type">
-					integer				</span>
+				<code>parent</code>
 			</td>
 			<td>
-				<p>The ID for the parent of the object.</p>
+				<p>The ID for the parent of the revision.</p>
+				<p class="type">
+					JSON data type: integer				</p>
 								<p class="context">Context: <code>view</code>, <code>edit</code>, <code>embed</code></p>
 							</td>
 		</tr>
 			<tr id="schema-slug">
 			<td>
-				<code>slug</code><br />
-				<span class="type">
-					string				</span>
+				<code>slug</code>
 			</td>
 			<td>
-				<p>An alphanumeric identifier for the object unique to its type.</p>
+				<p>An alphanumeric identifier for the revision unique to its type.</p>
+				<p class="type">
+					JSON data type: string				</p>
 								<p class="context">Context: <code>view</code>, <code>edit</code>, <code>embed</code></p>
 							</td>
 		</tr>
 			<tr id="schema-title">
 			<td>
-				<code>title</code><br />
-				<span class="type">
-					object				</span>
+				<code>title</code>
 			</td>
 			<td>
-				<p>The title for the object.</p>
+				<p>The title for the post.</p>
+				<p class="type">
+					JSON data type: object				</p>
 								<p class="context">Context: <code>view</code>, <code>edit</code>, <code>embed</code></p>
 							</td>
 		</tr>
 			<tr id="schema-content">
 			<td>
-				<code>content</code><br />
-				<span class="type">
-					object				</span>
+				<code>content</code>
 			</td>
 			<td>
-				<p>The content for the object.</p>
+				<p>The content for the post.</p>
+				<p class="type">
+					JSON data type: object				</p>
 								<p class="context">Context: <code>view</code>, <code>edit</code></p>
 							</td>
 		</tr>
 			<tr id="schema-excerpt">
 			<td>
-				<code>excerpt</code><br />
-				<span class="type">
-					object				</span>
+				<code>excerpt</code>
 			</td>
 			<td>
-				<p>The excerpt for the object.</p>
+				<p>The excerpt for the post.</p>
+				<p class="type">
+					JSON data type: object				</p>
 								<p class="context">Context: <code>view</code>, <code>edit</code>, <code>embed</code></p>
 							</td>
 		</tr>
@@ -175,7 +175,7 @@
 											<code>parent</code><br />
 									</td>
 				<td>
-											<p>The ID for the parent of the object.</p>
+											<p>The ID for the parent of the revision.</p>
 																								</td>
 			</tr>
 					<tr>
@@ -289,7 +289,7 @@
 											<code>parent</code><br />
 									</td>
 				<td>
-											<p>The ID for the parent of the object.</p>
+											<p>The ID for the parent of the revision.</p>
 																								</td>
 			</tr>
 					<tr>
@@ -297,7 +297,7 @@
 											<code>id</code><br />
 									</td>
 				<td>
-											<p>Unique identifier for the object.</p>
+											<p>Unique identifier for the revision.</p>
 																								</td>
 			</tr>
 					<tr>
@@ -326,7 +326,7 @@
 											<code>parent</code><br />
 									</td>
 				<td>
-											<p>The ID for the parent of the object.</p>
+											<p>The ID for the parent of the revision.</p>
 																								</td>
 			</tr>
 					<tr>
@@ -334,7 +334,7 @@
 											<code>id</code><br />
 									</td>
 				<td>
-											<p>Unique identifier for the object.</p>
+											<p>Unique identifier for the revision.</p>
 																								</td>
 			</tr>
 					<tr>
@@ -378,7 +378,7 @@
 											<code>parent</code><br />
 									</td>
 				<td>
-											<p>The ID for the parent of the object.</p>
+											<p>The ID for the parent of the autosave.</p>
 																								</td>
 			</tr>
 					<tr>
@@ -407,7 +407,7 @@
 											<code><a href="#schema-parent">parent</a></code><br />
 									</td>
 				<td>
-											<p>The ID for the parent of the object.</p>
+											<p>The ID for the parent of the post.</p>
 																								</td>
 			</tr>
 					<tr>
@@ -415,7 +415,7 @@
 											<code><a href="#schema-date">date</a></code><br />
 									</td>
 				<td>
-											<p>The date the object was published, in the site&#039;s timezone.</p>
+											<p>The date the post was published, in the site&#039;s timezone.</p>
 																								</td>
 			</tr>
 					<tr>
@@ -423,7 +423,7 @@
 											<code><a href="#schema-date_gmt">date_gmt</a></code><br />
 									</td>
 				<td>
-											<p>The date the object was published, as GMT.</p>
+											<p>The date the post was published, as GMT.</p>
 																								</td>
 			</tr>
 					<tr>
@@ -431,7 +431,7 @@
 											<code><a href="#schema-slug">slug</a></code><br />
 									</td>
 				<td>
-											<p>An alphanumeric identifier for the object unique to its type.</p>
+											<p>An alphanumeric identifier for the post unique to its type.</p>
 																								</td>
 			</tr>
 					<tr>
@@ -439,7 +439,7 @@
 											<code><a href="#schema-status">status</a></code><br />
 									</td>
 				<td>
-											<p>A named status for the object.</p>
+											<p>A named status for the post.</p>
 																										<p>One of: <code>publish</code>, <code>future</code>, <code>draft</code>, <code>pending</code>, <code>private</code></p>
 									</td>
 			</tr>
@@ -456,7 +456,7 @@
 											<code><a href="#schema-title">title</a></code><br />
 									</td>
 				<td>
-											<p>The title for the object.</p>
+											<p>The title for the post.</p>
 																								</td>
 			</tr>
 					<tr>
@@ -464,7 +464,7 @@
 											<code><a href="#schema-content">content</a></code><br />
 									</td>
 				<td>
-											<p>The content for the object.</p>
+											<p>The content for the post.</p>
 																								</td>
 			</tr>
 					<tr>
@@ -472,7 +472,7 @@
 											<code><a href="#schema-author">author</a></code><br />
 									</td>
 				<td>
-											<p>The ID for the author of the object.</p>
+											<p>The ID for the author of the post.</p>
 																								</td>
 			</tr>
 					<tr>
@@ -480,7 +480,7 @@
 											<code><a href="#schema-excerpt">excerpt</a></code><br />
 									</td>
 				<td>
-											<p>The excerpt for the object.</p>
+											<p>The excerpt for the post.</p>
 																								</td>
 			</tr>
 					<tr>
@@ -488,7 +488,7 @@
 											<code><a href="#schema-featured_media">featured_media</a></code><br />
 									</td>
 				<td>
-											<p>The ID of the featured media for the object.</p>
+											<p>The ID of the featured media for the post.</p>
 																								</td>
 			</tr>
 					<tr>
@@ -496,7 +496,7 @@
 											<code><a href="#schema-comment_status">comment_status</a></code><br />
 									</td>
 				<td>
-											<p>Whether or not comments are open on the object.</p>
+											<p>Whether or not comments are open on the post.</p>
 																										<p>One of: <code>open</code>, <code>closed</code></p>
 									</td>
 			</tr>
@@ -505,7 +505,7 @@
 											<code><a href="#schema-ping_status">ping_status</a></code><br />
 									</td>
 				<td>
-											<p>Whether or not the object can be pinged.</p>
+											<p>Whether or not the post can be pinged.</p>
 																										<p>One of: <code>open</code>, <code>closed</code></p>
 									</td>
 			</tr>
@@ -514,7 +514,7 @@
 											<code><a href="#schema-menu_order">menu_order</a></code><br />
 									</td>
 				<td>
-											<p>The order of the object in relation to other object of its type.</p>
+											<p>The order of the post in relation to other posts.</p>
 																								</td>
 			</tr>
 					<tr>
@@ -530,7 +530,7 @@
 											<code><a href="#schema-template">template</a></code><br />
 									</td>
 				<td>
-											<p>The theme file to use to display the object.</p>
+											<p>The theme file to use to display the post.</p>
 																								</td>
 			</tr>
 			</table>
@@ -562,7 +562,7 @@
 											<code>parent</code><br />
 									</td>
 				<td>
-											<p>The ID for the parent of the object.</p>
+											<p>The ID for the parent of the autosave.</p>
 																								</td>
 			</tr>
 					<tr>
@@ -570,7 +570,7 @@
 											<code>id</code><br />
 									</td>
 				<td>
-											<p>The ID for the object.</p>
+											<p>The ID for the autosave.</p>
 																								</td>
 			</tr>
 					<tr>
